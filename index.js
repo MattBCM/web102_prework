@@ -45,8 +45,19 @@ function addGamesToPage(games) {
 
         // append the game to the games-container
 
+        games.forEach(element => {
+            var x = document.createElement("div");
+            x.classList.add("game-card");
+            x.innerHTML = `<img src="${element.img}">
+                         <h1>Name: ${element.name}</h1>
+                         <h2>Description: ${element.description}</h2>`;
+            var inputTo = document.getElementById("games-container");
+            inputTo.append(x);
+        });
+
 }
 
+addGamesToPage(GAMES_JSON);
 // call the function we just defined using the correct variable
 // later, we'll call this function using a different list of games
 
